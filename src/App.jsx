@@ -4,6 +4,10 @@ import Header from "./components/Header";
 import Container from "./components/Container";
 import Chooseus from "./components/Chooseus";
 import Help from "./components/Help";
+import About from "./components/About";
+import Slider from "./components/Slider";
+import Blog from "./components/Blog";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -13,6 +17,10 @@ const App = () => {
       <Container />
       <Chooseus />
       <Help />
+      <About />
+      <Slider />
+      <Blog />
+      <Footer />
     </>
   );
 };

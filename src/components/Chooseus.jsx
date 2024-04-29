@@ -5,7 +5,7 @@ import dots from "../images/dots-yellow.svg";
 
 const Chooseus = () => {
   return (
-    <section className="flex h-screen w-full px-20 items-center gap-[6rem]">
+    <section className="flex h-screen w-full px-20 items-center gap-[6rem] mt-16">
       <div className="flex flex-col gap-10 h-4/5 w-2/4 ">
         <div className="flex flex-col gap-4">
           <h1 className="text-4xl font-semibold">Why Choose Us</h1>
