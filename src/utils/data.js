@@ -1,7 +1,12 @@
 import nordik from "../images/product-1.png";
+import nordick1 from "../images/nordick-1.png";
+import nordick2 from "../images/nordick-2.png";
 import Kruzo from "../images/product-2.png";
-import KruzoComp from "../images/product-2-comp.png";
+import kruzo1 from "../images/kruzo-1.png";
+import kruzo2 from "../images/kruzo-2.png";
 import ergonomic from "../images/product-3.png";
+import ergo1 from "../images/ergo-1.png";
+import ergo2 from "../images/ergo-2.png";
 
 import truck from "../images/truck.svg";
 import bag from "../images/bag.svg";
@@ -13,12 +18,12 @@ import blog2 from "../images/post-2.jpg";
 import blog3 from "../images/post-3.jpg";
 
 export const links = [
-  "Home",
-  "Shop",
-  "About us",
-  "Services",
-  "Blog",
-  "Contact us",
+  { link: "Home", path: "/" },
+  { link: "Shop" },
+  { link: "About us" },
+  { link: "Services" },
+  { link: "Blog" },
+  { link: "Contact us" },
 ];
 
 export const products = [
@@ -26,19 +31,22 @@ export const products = [
     id: 1,
     title: "Nordik Chair",
     price: "$50.00",
-    img: nordik,
+    images: [nordik, nordick1, nordick2],
+    colors: ["#deb351", "#92a953", "#509766"],
   },
   {
     id: 2,
     title: "Kruzo Aero Chair",
     price: "$78.00",
-    img: Kruzo,
+    images: [Kruzo, kruzo1, kruzo2],
+    colors: ["#9ceeeb", "#9afac8", "#d2fc8d", "#9c639a", "#74afe3"],
   },
   {
     id: 3,
     title: "Ergonomic Chair",
     price: "$43.00",
-    img: ergonomic,
+    images: [ergonomic, ergo1, ergo2],
+    colors: ["#000000", "#412728", "#7f4d3e"],
   },
 ];
 
@@ -78,7 +86,7 @@ export const aboutus = [
   {
     id: 2,
     title: "Kruzo Aero Chair",
-    img: KruzoComp,
+    img: Kruzo,
   },
   {
     id: 3,
@@ -112,6 +120,6 @@ export const blog = [
 ];
 
 export const links1 = ["About us", "Services", "Blog", "Contact us"];
-export const links2 = ["Support", "Knowledge base", "Live Chat","",""];
+export const links2 = ["Support", "Knowledge base", "Live Chat", "", ""];
 export const links3 = ["Jobs", "Our Team", "Leardship", "Privacy Policy"];
-export const links4 = ["Nordic Chair", "Kruzo Aero", "Ergonomic Chair","",""];
+export const links4 = ["Nordic Chair", "Kruzo Aero", "Ergonomic Chair", "", ""];

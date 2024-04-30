@@ -1,6 +1,7 @@
 import { links } from "../utils/data";
 import user from "../images/user.svg";
 import bag from "../images/cart.svg";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -11,9 +12,11 @@ const Navbar = () => {
       <div className="flex items-center gap-10">
         <div className="flex items-center gap-10">
           {links.map((l) => (
-            <p className="text-slate-300 cursor-pointer font-semibold text-base">
-              {l}
-            </p>
+            <NavLink to={l.path}>
+              <p className="text-slate-300 cursor-pointer font-semibold text-base">
+                {l.link}
+              </p>
+            </NavLink>
           ))}
         </div>
         <div className="flex items-center gap-4">
