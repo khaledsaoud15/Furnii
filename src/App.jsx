@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Product from "./pages/Product";
 
 import { Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/product/:id" element={<Product />} />
       </Routes>
       <Footer />
+      {/* <Login /> */}
     </>
   );
 };
