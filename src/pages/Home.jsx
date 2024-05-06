@@ -6,10 +6,13 @@ import Help from "../components/Help";
 import About from "../components/About";
 import Slider from "../components/Slider";
 import Blog from "../components/Blog";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
   return (
     <div>
+      <Navbar />
       <Header />
       <Container />
       <Chooseus />
@@ -17,6 +20,7 @@ const Home = () => {
       <About />
       <Slider />
       <Blog />
+      <Footer />
     </div>
   );
 };

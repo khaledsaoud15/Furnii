@@ -25,11 +25,13 @@ const Navbar = () => {
             alt=""
             className="w-4 h-6 object-fit cursor-pointer"
           />
-          <img
-            src={bag}
-            alt=""
-            className="w-5 h-6 object-fit cursor-pointer "
-          />
+          <NavLink to="/cart">
+            <img
+              src={bag}
+              alt=""
+              className="w-5 h-6 object-fit cursor-pointer "
+            />
+          </NavLink>
         </div>
       </div>
     </nav>

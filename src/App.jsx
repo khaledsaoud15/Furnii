@@ -1,22 +1,27 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Product from "./pages/Product";
 
 import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
+import { AnimatePresence } from "framer-motion";
+import { useLocation } from "react-router-dom";
+import Signup from "./pages/Signup";
+import Shop from "./pages/Shop";
 
 const App = () => {
+  const location = useLocation();
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/product/:id" element={<Product />} />
-      </Routes>
-      <Footer />
-      {/* <Login /> */}
+      <AnimatePresence mode="wait" initial={false}>
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Home />} />
+          <Route path="/product/:id" element={<Product />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Signup />} />
+          <Route path="/cart" element={<Shop />} />
+        </Routes>
+      </AnimatePresence>
     </>
   );
 };

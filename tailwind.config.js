@@ -8,6 +8,9 @@ export default {
         limeyellow: "#f9bf29",
         darkgrey: "#2f2f2f",
       },
+      fontFamily: {
+        handlee: ["Handlee", "sans-serif"],
+      },
     },
   },
   plugins: [],
