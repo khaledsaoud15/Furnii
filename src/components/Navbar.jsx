@@ -25,7 +25,7 @@ const DropDown = () => {
 
 const Navbar = () => {
   const cart = useSelector((props) => props.cart.cart);
-  const userExist = false;
+  const userExist = useSelector((props) => props.login.user);
   return (
     <nav className="flex items-center justify-between w-full h-20 bg-shadegreen px-24">
       <h1 className="text-4xl font-bold text-white ">
@@ -44,11 +44,13 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
           <div className="">
             {userExist ? (
-              <img
-                src="https://i.pinimg.com/564x/e0/89/46/e08946b2d277eeb77747cc871f9b5b9f.jpg"
-                alt=""
-                className="w-6 h-6 object-cover rounded-full cursor-pointer"
-              />
+              <NavLink to="/profile">
+                <img
+                  src="https://i.pinimg.com/564x/e0/89/46/e08946b2d277eeb77747cc871f9b5b9f.jpg"
+                  alt=""
+                  className="w-6 h-6 object-cover rounded-full cursor-pointer"
+                />
+              </NavLink>
             ) : (
               <div className="relative w-4 h-6 group">
                 <img

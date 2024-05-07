@@ -8,6 +8,7 @@ import { AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import Signup from "./pages/Signup";
 import Shop from "./pages/Shop";
+import Profile from "./pages/Profile";
 
 const App = () => {
   const location = useLocation();
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Signup />} />
           <Route path="/cart" element={<Shop />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </AnimatePresence>
     </>
