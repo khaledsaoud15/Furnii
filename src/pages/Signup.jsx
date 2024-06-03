@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { registerUser } from "../redux/registerSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { NavLink, useNavigate } from "react-router-dom";
+
+import axios from "axios";
 
 const Input = ({ type, text, placeholder, name, onchange, value }) => {
   return (
@@ -27,28 +27,24 @@ const Signup = () => {
     password: "",
   });
 
-  const dispatch = useDispatch();
-
-  const allusers = useSelector((props) => props.register.allUsers);
+  const navigate = useNavigate();
 
   const handlSubmit = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  const registerUserToArray = (email) => {
+  const registerUserToArray = async () => {
     if (user.username === "" || user.email === "" || user.password === "") {
       return;
     }
 
-    const findUser = allusers.find((u) => u.email === email);
-
-    if (findUser) {
-      alert("Already Exist please LOGIN");
-    } else {
-      dispatch(
-        registerUser({ ...user, id: Math.random().toString(36).slice(2) })
-      );
+    try {
+      await axios.post("http://localhost:8080/auth/register", user);
+      navigate("/login");
+    } catch (err) {
+      console.error(err.message);
     }
+
     setUser({
       username: "",
       email: "",

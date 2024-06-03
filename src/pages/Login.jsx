@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
-import { loginFailed, loginStart, loginSuccess } from "../redux/userSlice";
+import { loginRequest } from "../redux/userSlice";
 
 const Input = ({ type, text, placeholder, name, onchange, value }) => {
   return (
@@ -13,38 +13,28 @@ const Input = ({ type, text, placeholder, name, onchange, value }) => {
         placeholder={placeholder}
         name={name}
         onChange={onchange}
-        value={value}
       />
     </div>
   );
 };
 
 const Login = () => {
-  const users = useSelector((props) => props.register.allUsers);
+  // const users = useSelector((props) => props.register.allUsers);
   const dispatch = useDispatch();
 
-  const isFetching = useSelector((props) => props.login.isFetching);
-  const err = useSelector((props) => props.login.err);
+  const isFetching = useSelector((props) => props.user.isFetching);
+  const err = useSelector((props) => props.user.err);
+  const user = useSelector((props) => props.user.user);
   const navigate = useNavigate();
 
-  const [userState, setUserState] = useState({
-    email: "",
-    password: "",
-  });
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handlChange = (e) => {
-    setUserState({ ...userState, [e.target.name]: e.target.value });
-  };
+  const loginFunction = async () => {
+    console.log(user);
 
-  const loginFunction = (email) => {
-    dispatch(loginStart());
-    const userInDB = users.find((u) => u.email === email);
-    if (userInDB) {
-      dispatch(loginSuccess(userState));
-      navigate("/");
-    } else {
-      dispatch(loginFailed());
-    }
+    dispatch(loginRequest({ email, password }));
+    navigate("/");
   };
 
   return (
@@ -57,16 +47,14 @@ const Login = () => {
             placeholder="Type Your Email"
             text="Email"
             name="email"
-            onchange={handlChange}
-            value={userState.email}
+            onchange={(e) => setEmail(e.target.value)}
           />
           <Input
             type="password"
             placeholder="Type Your Password"
             text="Password"
             name="password"
-            onchange={handlChange}
-            value={userState.password}
+            onchange={(e) => setPassword(e.target.value)}
           />
         </div>
         <p className="text-sm">
@@ -76,7 +64,7 @@ const Login = () => {
           </NavLink>
         </p>
         <button
-          onClick={() => loginFunction(userState.email)}
+          onClick={loginFunction}
           disabled={isFetching}
           className="w-2/5 py-2 border-none rounded-lg bg-shadegreen text-white shadow-xl "
         >

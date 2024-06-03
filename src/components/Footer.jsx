@@ -51,23 +51,23 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex flex-col gap-4 justify-end h-full">
-          {links1.map((i) => (
-            <FooterLinks link={i} />
+          {links1.map((i, index) => (
+            <FooterLinks link={i} key={index} />
           ))}
         </div>
         <div className="flex flex-col gap-4 justify-end h-full">
-          {links2.map((i) => (
-            <FooterLinks link={i} />
+          {links2.map((i, index) => (
+            <FooterLinks link={i} key={index} />
           ))}
         </div>
         <div className="flex flex-col gap-4 justify-end h-full">
-          {links3.map((i) => (
-            <FooterLinks link={i} />
+          {links3.map((i, index) => (
+            <FooterLinks link={i} key={index} />
           ))}
         </div>
         <div className="flex flex-col gap-4 justify-end h-full">
-          {links4.map((i) => (
-            <FooterLinks link={i} />
+          {links4.map((i, index) => (
+            <FooterLinks link={i} key={index} />
           ))}
         </div>
       </section>

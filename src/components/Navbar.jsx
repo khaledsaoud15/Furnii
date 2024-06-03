@@ -24,8 +24,10 @@ const DropDown = () => {
 };
 
 const Navbar = () => {
-  const cart = useSelector((props) => props.cart.cart);
-  const userExist = useSelector((props) => props.login.user);
+  const user = useSelector((props) => props.user.user);
+
+  // const cart = useSelector((props) => props.cart.cart);
+  const userExist = useSelector((props) => props.user.isAuthenticated);
   return (
     <nav className="flex items-center justify-between w-full h-20 bg-shadegreen px-24">
       <h1 className="text-4xl font-bold text-white ">
@@ -33,8 +35,8 @@ const Navbar = () => {
       </h1>
       <div className="flex items-center gap-10">
         <div className="flex items-center gap-10">
-          {links.map((l) => (
-            <NavLink to={l.path}>
+          {links.map((l, index) => (
+            <NavLink to={l.path} key={index}>
               <p className="text-slate-300 cursor-pointer font-semibold text-base">
                 {l.link}
               </p>
@@ -44,7 +46,7 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
           <div className="">
             {userExist ? (
-              <NavLink to="/profile">
+              <NavLink to={`/profile/${user.user._id}`}>
                 <img
                   src="https://i.pinimg.com/564x/e0/89/46/e08946b2d277eeb77747cc871f9b5b9f.jpg"
                   alt=""
@@ -64,7 +66,7 @@ const Navbar = () => {
           </div>
           <NavLink to="/cart" className="relative">
             <p className="text-xs font-semibold   bg-white rounded-full flex items-center justify-center absolute -top-4 w-5 h-5 -right-4">
-              {cart.length}
+              0
             </p>
             <img
               src={bag}
